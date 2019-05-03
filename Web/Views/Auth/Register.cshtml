@@ -1,0 +1,63 @@
+﻿@model Domains.ClientVM
+@{
+    Layout = "~/Views/Layout/LoginLayout.cshtml";
+}
+
+<div class="auth-box on-sidebar">
+    <div id="loginform">
+        <div class="logo">
+            <span class="db"><img style="max-height:100px" src="../../Layout/assets/imgs/logo.jpg" alt="logo" /></span>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                    <form action="@Url.Action("RegisterSetAsync","Auth")" method="POST" enctype="multipart/form-data" class="form-horizontal m-t-20">
+                        <div class="container-fluid row">
+                            <div class="form-group col-md-12">
+                                <label class="col-form-label"  style="float:right">اسم المستثمر</label>
+                                <input type="text" required class="form-control" name="FullName" id="FullName">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="col-form-label" style="float:right">اسم المؤسسة/الشركة</label>
+                                <input type="text" required class="form-control" name="OrganizationName" id="OrganizationName">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label"  style="float:right">اسم المستخدم</label>
+                                <input type="text" required class="form-control" name="UserName" id="UserName">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label"  style="float:right">كلمة المرور</label>
+                                <input type="password" required class="form-control" name="Password" id="password">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label"  style="float:right">تاكيد كلمة المرور</label>
+                                <input type="password" required class="form-control" name="Password2" id="password2">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label" style="float:right">رقم الهوية</label>
+                                <input type="number" class="form-control" name="SSID" id="SSID">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="col-form-label" style="float:right">البريد الإلكترونى</label>
+                                <input type="text" required class="form-control" name="Email" id="Email">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label class="col-form-label">كود الدولة</label>
+                                <select name="CountryCode"  class="select2 form-control custom-select"
+                                        id="CountryCode" style="height: 36px;width: 100%;">
+                                    <option value="966">966</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-9">
+                                <label class="col-form-label" style="float:right">رقم الجوال</label>
+                                <input type="number" required class="form-control" name="PhoneNumber" id="PhoneNumber">
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <button type="submit" class="btn btn-success btn-block btn-lg">تسجيل جديد</button>
+                            </div>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>

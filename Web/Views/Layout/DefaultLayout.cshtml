@@ -1,0 +1,668 @@
+﻿@using Commands
+
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/favicon.ico">
+    <title> نظام مدن لإدارة سلامة الغذاء </title>
+    <link href="https://fonts.googleapis.com/css?family=El+Messiri" rel="stylesheet">
+    <link href="~/Layout/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
+    <link href="~/Layout/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="~/Layout/assets/extra-libs/c3/c3.min.css" rel="stylesheet">
+    <link href="~/Layout/dist/css/style.min.css" rel="stylesheet">
+    <link href="~/Layout/assets/libs/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="~/Layout/assets/libs/uppy/uppy.min.css" rel="stylesheet">
+    <link href="~/Layout/assets/libs/Hajri-date/w3.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-chained/1.0.1/jquery.chained.min.js"></script>
+    <script src="~/Layout/assets/libs/uppy/uppy.min.js"></script>
+
+</head>
+<body>
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <div id="main-wrapper">
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header">
+                    <!-- This is for the sidebar toggle which is visible on mobile only -->
+                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)">
+                        <i class="ti-menu ti-close"></i>
+                    </a>
+                    <a class="navbar-brand" href="/Home/")">
+                        <b class="logo-icon">
+                            <img src="~/Layout/assets/imgs/logo1.png" alt="homepage" class="dark-logo" />
+                            <img src="~/Layout/assets/imgs/logo1.png" alt="homepage" class="light-logo" />
+                        </b>
+                        <span class="logo-text">
+                            <img src="~/Layout/assets/imgs/modon-logo1.png" alt="homepage" class="dark-logo" />
+                            <img src="~/Layout/assets/imgs/modon-logo1.png" class="light-logo" alt="homepage" />
+                        </span>
+                    </a>
+                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent"
+                       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="ti-more"></i>
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav float-left mr-auto">
+                        <li class="nav-item d-none d-md-block">
+                            <a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar">
+                                <i class="sl-icon-menu font-20"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ti-bell font-20"></i>
+
+                            </a>
+                            <div class="dropdown-menu mailbox animated bounceInDown">
+                                <span class="with-arrow">
+                                    <span class="bg-primary"></span>
+                                </span>
+                                <ul class="list-style-none">
+                                    <li>
+                                        <div class="drop-title bg-primary text-white">
+                                            <h4 class="m-b-0 m-t-5">4 New</h4>
+                                            <span class="font-light">Notifications</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="message-center notifications">
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)" class="message-item">
+                                                <span class="btn btn-danger btn-circle">
+                                                    <i class="fa fa-link"></i>
+                                                </span>
+                                                <div class="mail-contnet">
+                                                    <h5 class="message-title">Luanch Admin</h5>
+                                                    <span class="mail-desc">Just see the my new admin!</span>
+                                                    <span class="time">9:30 AM</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)" class="message-item">
+                                                <span class="btn btn-success btn-circle">
+                                                    <i class="ti-calendar"></i>
+                                                </span>
+                                                <div class="mail-contnet">
+                                                    <h5 class="message-title">Event today</h5>
+                                                    <span class="mail-desc">Just a reminder that you have event</span>
+                                                    <span class="time">9:10 AM</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)" class="message-item">
+                                                <span class="btn btn-info btn-circle">
+                                                    <i class="ti-settings"></i>
+                                                </span>
+                                                <div class="mail-contnet">
+                                                    <h5 class="message-title">Settings</h5>
+                                                    <span class="mail-desc">You can customize this template as you want</span>
+                                                    <span class="time">9:08 AM</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)" class="message-item">
+                                                <span class="btn btn-primary btn-circle">
+                                                    <i class="ti-user"></i>
+                                                </span>
+                                                <div class="mail-contnet">
+                                                    <h5 class="message-title">Pavan kumar</h5>
+                                                    <span class="mail-desc">Just see the my admin!</span>
+                                                    <span class="time">9:02 AM</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-center m-b-5" href="javascript:void(0);">
+                                            <strong>Check all notifications</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="font-20 ti-email"></i>
+
+                            </a>
+                            <div class="dropdown-menu mailbox animated bounceInDown" aria-labelledby="2">
+                                <span class="with-arrow">
+                                    <span class="bg-danger"></span>
+                                </span>
+                                <ul class="list-style-none">
+                                    <li>
+                                        <div class="drop-title bg-danger text-white">
+                                            <h4 class="m-b-0 m-t-5">5 New</h4>
+                                            <span class="font-light">Messages</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="message-center message-body">
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)" class="message-item">
+                                                <span class="user-img">
+                                                    <img src="~/Layout/assets/images/users/1.jpg" alt="user" class="rounded-circle">
+                                                    <span class="profile-status online pull-right"></span>
+                                                </span>
+                                                <div class="mail-contnet">
+                                                    <h5 class="message-title">Pavan kumar</h5>
+                                                    <span class="mail-desc">Just see the my admin!</span>
+                                                    <span class="time">9:30 AM</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)" class="message-item">
+                                                <span class="user-img">
+                                                    <img src="~/Layout/assets/images/users/2.jpg" alt="user" class="rounded-circle">
+                                                    <span class="profile-status busy pull-right"></span>
+                                                </span>
+                                                <div class="mail-contnet">
+                                                    <h5 class="message-title">Sonu Nigam</h5>
+                                                    <span class="mail-desc">I've sung a song! See you at</span>
+                                                    <span class="time">9:10 AM</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)" class="message-item">
+                                                <span class="user-img">
+                                                    <img src="~/Layout/assets/images/users/3.jpg" alt="user" class="rounded-circle">
+                                                    <span class="profile-status away pull-right"></span>
+                                                </span>
+                                                <div class="mail-contnet">
+                                                    <h5 class="message-title">Arijit Sinh</h5>
+                                                    <span class="mail-desc">I am a singer!</span>
+                                                    <span class="time">9:08 AM</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)" class="message-item">
+                                                <span class="user-img">
+                                                    <img src="~/Layout/assets/images/users/4.jpg" alt="user" class="rounded-circle">
+                                                    <span class="profile-status offline pull-right"></span>
+                                                </span>
+                                                <div class="mail-contnet">
+                                                    <h5 class="message-title">Pavan kumar</h5>
+                                                    <span class="mail-desc">Just see the my admin!</span>
+                                                    <span class="time">9:02 AM</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-center link" href="javascript:void(0);">
+                                            <b>See all e-Mails</b>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav float-right">
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item search-box">
+                            <a class="nav-link waves-effect waves-dark" href="javascript:void(0)">
+                                <i class="ti-search font-16"></i>
+                            </a>
+                            <form class="app-search position-absolute">
+                                <input type="text" class="form-control" placeholder="ابحث">
+                                <a class="srh-btn">
+                                    <i class="ti-close"></i>
+                                </a>
+                            </form>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"
+                               aria-expanded="false">
+                                <i class="flag-icon flag-icon-sa font-18"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right  animated bounceInDown" aria-labelledby="navbarDropdown2">
+                                <a class="dropdown-item" href="#">
+                                    <i class="flag-icon flag-icon-sa"></i> العربية
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="flag-icon flag-icon-us"></i> English
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true"
+                               aria-expanded="false">
+                                <img src="~/Layout/assets/imgs/sa.png" alt="user" class="rounded-circle" width="31">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
+                                <span class="with-arrow">
+                                    <span class="bg-primary"></span>
+                                </span>
+                                <div class="d-flex no-block align-items-center p-15 bg-primary text-white m-b-10">
+                                    <div class="">
+                                        <img src="~/Layout/assets/imgs/sa.png" alt="user" class="rounded-circle img-fluid" width="60">
+                                    </div>
+                                    <div class="m-l-10">
+                                        <h4 class="m-b-0">@User.FullName()</h4>
+                                        <p class=" m-b-0">@User.Email()</p>
+                                    </div>
+                                </div>
+                                <a class="dropdown-item" href="/Auth/Details?id=@User.UserId()">
+                                    <i class="ti-user m-r-5 m-l-5"></i> الصفحة الشخصية
+                                </a>
+                                @if (User.IsClient())
+                                {
+                                    <a class="dropdown-item" href="@Url.Action("/","Auth")">
+                                        <i class="ti-wallet m-r-5 m-l-5"></i> الحسابات الفرعية
+                                    </a>
+                                }
+                                <a class="dropdown-item" href="@Url.Action("ChangeMyPassword","Auth")">
+                                    <i class="ti-settings m-r-5 m-l-5"></i> تغيير كلمة السر
+                                </a>
+                                <a class="dropdown-item" href="@Url.Action("Logout","Auth")">
+                                    <i class="fa fa-power-off m-r-5 m-l-5"></i> تسجيل الخروج
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <!-- User Profile-->
+                        <li>
+                            <!-- User Profile-->
+                            <div class="user-profile dropdown m-t-20">
+                                <div class="user-pic">
+                                    <img src="~/Layout/assets/imgs/sa.png" alt="users" class="rounded-circle img-fluid" />
+                                </div>
+                                <div class="user-content hide-menu m-t-10">
+                                    <h5 class="m-b-10 user-name font-medium">@User.FullName()</h5>
+                                    <a href="javascript:void(0)" class="btn btn-circle btn-sm m-r-5" id="Userdd" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                       aria-expanded="false">
+                                        <i class="ti-settings"></i>
+                                    </a>
+                                    <a href="@Url.Action("Logout","Auth")" title="تسجيل الخروج" class="btn btn-circle btn-sm">
+                                        <i class="ti-power-off"></i>
+                                    </a>
+                                    <div class="dropdown-menu animated flipInY" aria-labelledby="Userdd">
+                                        <a class="dropdown-item" href="/Auth/Details?id=@User.UserId()">
+                                            <i class="ti-user m-r-5 m-l-5"></i> الصفحة الشخصية
+                                        </a>
+                                        @if (User.IsClient())
+                                        {
+                                            <a class="dropdown-item" href="@Url.Action("/","Auth")">
+                                                <i class="ti-wallet m-r-5 m-l-5"></i> الحسابات الفرعية
+                                            </a>
+                                        }
+                                        <a class="dropdown-item" href="@Url.Action("ChangeMyPassword","Auth")">
+                                            <i class="ti-settings m-r-5 m-l-5"></i> تغيير كلمة السر
+                                        </a>
+                                        <a class="dropdown-item" href="@Url.Action("Logout","Auth")">
+                                            <i class="fa fa-power-off m-r-5 m-l-5"></i> تسجيل الخروج
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="icon-Car-Wheel"></i>
+                                <span class="hide-menu">المنشآت</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("/", "Facility")" class="sidebar-link">
+                                        <i class="icon-Record"></i>
+                                        <span class="hide-menu"> الرخص السارية </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("/", "Facility")" class="sidebar-link">
+                                        <i class="icon-Record"></i>
+                                        <span class="hide-menu"> جميع المنشآت </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="icon-Car-Wheel"></i>
+                                <span class="hide-menu">العمالة</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("/", "Worker")" class="sidebar-link">
+                                        <i class="icon-Record"></i>
+                                        <span class="hide-menu"> قائمة العمالة </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="icon-Car-Wheel"></i>
+                                <span class="hide-menu">طلبات المنشآت</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("/", "FacilityOrder")" class="sidebar-link">
+                                        <i class="icon-Record"></i>
+                                        <span class="hide-menu"> طلبات الموافقة المبدائية </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("/", "FacilityOrder")" class="sidebar-link">
+                                        <i class="icon-Record"></i>
+                                        <span class="hide-menu"> طلبات اصدار رخصة </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("/", "FacilityOrder")" class="sidebar-link">
+                                        <i class="icon-Record"></i>
+                                        <span class="hide-menu"> طلبات تغير نشاط </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("/", "FacilityOrder")" class="sidebar-link">
+                                        <i class="icon-Record"></i>
+                                        <span class="hide-menu"> طلبات تغير حجم اللوحة </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("/", "FacilityOrder")" class="sidebar-link">
+                                        <i class="icon-Record"></i>
+                                        <span class="hide-menu"> طلبات تغير مبيعات </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("/", "FacilityOrder")" class="sidebar-link">
+                                        <i class="icon-Record"></i>
+                                        <span class="hide-menu"> طلبات نقل ملكية </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("/", "FacilityOrder")" class="sidebar-link">
+                                        <i class="icon-Record"></i>
+                                        <span class="hide-menu"> طلبات نقل ملكية </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="@Url.Action("/", "FacilityOrder")" class="sidebar-link">
+                                        <i class="icon-Record"></i>
+                                        <span class="hide-menu"> طلبات الغاء رخصة </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        @if (User.IsEmployee())
+                        {
+                            <li class="sidebar-item">
+                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                    <i class="icon-Car-Wheel"></i>
+                                    <span class="hide-menu">الموظفين</span>
+                                </a>
+                                <ul aria-expanded="false" class="collapse  first-level">
+                                    <li class="sidebar-item">
+                                        <a href="@Url.Action("/", "Employee")" class="sidebar-link">
+                                            <i class="icon-Record"></i>
+                                            <span class="hide-menu"> قائمة الموظفين </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        @if (User.IsAdmin())
+                        {
+                            <li class="sidebar-item">
+                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                    <i class="icon-Car-Wheel"></i>
+                                    <span class="hide-menu">الاعدادات</span>
+                                </a>
+                                <ul aria-expanded="false" class="collapse  first-level">
+                                    <li class="sidebar-item">
+                                        <a href="@Url.Action("/", "CountryConfig")" class="sidebar-link">
+                                            <i class="icon-Record"></i>
+                                            <span class="hide-menu"> الدول </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="@Url.Action("/", "CityConfig")" class="sidebar-link">
+                                            <i class="icon-Record"></i>
+                                            <span class="hide-menu"> المدن </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="@Url.Action("/", "IndustrialCityConfig")" class="sidebar-link">
+                                            <i class="icon-Record"></i>
+                                            <span class="hide-menu">   المدن الصناعية</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="@Url.Action("/", "FacilitiesGroupConfig")" class="sidebar-link">
+                                            <i class="icon-Record"></i>
+                                            <span class="hide-menu"> المجمعات </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="@Url.Action("/", "MainActivityConfig")" class="sidebar-link">
+                                            <i class="icon-Record"></i>
+                                            <span class="hide-menu"> الانشطة الرئيسية </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="@Url.Action("/", "SubActivityConfig")" class="sidebar-link">
+                                            <i class="icon-Record"></i>
+                                            <span class="hide-menu"> الانشطة الفرعية </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="@Url.Action("/", "JobConfig")" class="sidebar-link">
+                                            <i class="icon-Record"></i>
+                                            <span class="hide-menu"> الوظائف </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="@Url.Action("/", "RoleConfig")" class="sidebar-link">
+                                            <i class="icon-Record"></i>
+                                            <span class="hide-menu"> انواع المستخدمين </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="@Url.Action("/", "PermissionConfig")" class="sidebar-link">
+                                            <i class="icon-Record"></i>
+                                            <span class="hide-menu"> إدارة الصلاحيات </span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                    <i class="icon-Car-Wheel"></i>
+                                    <span class="hide-menu">ادوات النظام</span>
+                                </a>
+                                <ul aria-expanded="false" class="collapse  first-level">
+                                    <li class="sidebar-item">
+                                        <a href="/elmah.axd" class="sidebar-link">
+                                            <i class="icon-Record"></i>
+                                            <span class="hide-menu"> سجلات النظام </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="@Url.Action("SystemReboot", "Config")" class="sidebar-link">
+                                            <i class="icon-Record"></i>
+                                            <span class="hide-menu"> اعادة ضبط النظام </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="@Url.Action("/", "Config")" class="sidebar-link">
+                                            <i class="icon-Record"></i>
+                                            <span class="hide-menu"> ايقاف النظام </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <div class="page-wrapper">
+            <div class="container-fluid">
+
+
+                @RenderBody()
+            </div>
+            <footer class="footer text-center">
+                جميع الحقوق محفوظة © 2019 الهيئة السعودية للمدن الصناعية ومناطق التقنية
+            </footer>
+        </div>
+        <div class="modal fade" id="ModalId" tabindex="-1" role="dialog" aria-labelledby="ModalIdLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content container-fluid">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chat-windows"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            "use strict";
+            var sidebar = localStorage.getItem('sidebar');
+            if (typeof (sidebar) == 'undefined' || sidebar == null) localStorage.setItem('sidebar', 'full');
+            $("#main-wrapper").AdminSettings({
+                Theme: false, // this can be true or false ( true means dark and false means light ),
+                Layout: 'vertical',
+                LogoBg: 'skin6', // You can change the Value to be skin1/skin2/skin3/skin4/skin5/skin6
+                NavbarBg: 'skin6', // You can change the Value to be skin1/skin2/skin3/skin4/skin5/skin6
+                SidebarType: localStorage.getItem('sidebar'), // You can change it full / mini-sidebar / iconbar / overlay
+                SidebarColor: 'skin5', // You can change the Value to be skin1/skin2/skin3/skin4/skin5/skin6
+                SidebarPosition: false, // it can be true / false ( true means Fixed and false means absolute )
+                HeaderPosition: false, // it can be true / false ( true means Fixed and false means absolute )
+                BoxedLayout: true, // it can be true / false ( true means Boxed and false means Fluid )
+            });
+            $(".select2").select2();
+            $('#zero_config').DataTable({
+                "oLanguage": {
+                    "sProcessing": "جارٍ التحميل...",
+                    "sLengthMenu": "أظهر _MENU_ مدخلات",
+                    "sZeroRecords": "لم يعثر على أية سجلات",
+                    "sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
+                    "sInfoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
+                    "sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
+                    "sInfoPostFix": "",
+                    "sSearch": "ابحث:",
+                    "sUrl": "",
+                    "oPaginate": {
+                        "sFirst": "الأول",
+                        "sPrevious": "السابق",
+                        "sNext": "التالي",
+                        "sLast": "الأخير"
+                    }
+                }
+            });
+            $('form').parsley();
+            $('.file-repeater, .input-repeater').repeater({
+                minItems: 1,
+                isFirstItemUndeletable: true,
+                show: function () {
+                    $(this).slideDown();
+                },
+                hide: function (remove) {
+                    if (confirm('هل انت متأكد من حذف العنصر')) {
+                        $(this).slideUp(remove);
+                    }
+                }
+            });
+        });
+    </script>
+    <script src="~/Layout/dist/js/app.min.js"></script>
+    <script src="~/Layout/dist/js/app-style-switcher.js"></script>
+    <script src="~/Layout/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="~/Layout/dist/js/waves.js"></script>
+    <script src="~/Layout/dist/js/sidebarmenu.js"></script>
+    <script src="~/Layout/dist/js/custom.min.js"></script>
+    <script src="~/Layout/assets/libs/Parsley/dist/parsley.min.js"></script>
+    <script src="~/Layout/assets/libs/Parsley/dist/i18n/ar.js"></script>
+    <script src="~/Layout/assets/extra-libs/DataTables/datatables.min.js"></script>
+    <script src="~/Layout/assets/libs/select2/dist/js/select2.min.js"></script>
+    <script src="~/Layout/assets/libs/Hajri-date/hijri-date.js"></script>
+    <script src="~/Layout/assets/libs/Hajri-date/libdatepicker.js"></script>
+    <script src="~/Layout/assets/libs/Hajri-date/DatePicker.js"></script>
+    <script src="~/Layout/assets/libs/jquery.repeater/jquery.repeater.min.js"></script>
+
+    <script>
+        var UppySetup = function (name, filesmaxcount = 1) {
+            var uppy = Uppy.Core({
+                autoProceed: true,
+                restrictions: {
+                    maxFileSize: 10485760,
+                    maxNumberOfFiles: filesmaxcount,
+                    allowedFileTypes: ['.JPEG', '.png', '.jpg', '.bmp', '.pdf', '.doc', '.docx', '.csv', 'xlsx', 'xls']
+                }
+            });
+            uppy.use(Uppy.FileInput, {
+                target: '.UppyInput-' + name,
+                pretty: true,
+                locale: {
+                    strings: {
+                        chooseFiles: 'اختر الملفات'
+                    }
+                }
+            });
+            uppy.use(Uppy.Tus, { endpoint: 'https://master.tus.io/files/' })
+            uppy.use(Uppy.StatusBar, {
+                target: '.UppyInput-Progress-' + name,
+                hideUploadButton: true,
+                hideAfterFinish: false,
+                locale: {
+                    strings: {
+                        uploading: 'يتم رفع الملفات',
+                        complete: 'تم رفع الملفات بنجاح'
+                    }
+                }
+            });
+            var filelist = "";
+            uppy.on('complete', (result) => {
+                result.successful.forEach(function (entry) {
+                    filelist += entry.id + ",";
+                });
+                $("#" + name).attr('value', filelist);
+            })
+        }
+
+        var LoadModal = function (url) {
+            $.get(url, function (res) {
+                $mymodal = $("#ModalId");
+                $mymodal.find("div.modal-content").html(res);
+                $mymodal.modal("show");
+            });
+        }
+    </script>
+
+
+</body>
+</html>

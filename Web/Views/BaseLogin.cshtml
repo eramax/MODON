@@ -1,0 +1,25 @@
+﻿@model UiBuilder.UiView
+@{
+    Layout = "~/Views/Layout/LoginLayout.cshtml";
+}
+@Html.Raw(Model.Html)
+
+<div class="modal fade" id="ModalId" tabindex="-1" role="dialog" aria-labelledby="ModalIdLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content container-fluid">
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var LoadModal = function (url) {
+        $.get(url, function (res) {
+            $mymodal = $("#ModalId");
+            $mymodal.find("div.modal-content").html(res);
+            $mymodal.modal("show");
+        });
+    }
+</script>
+
+
+<script type="text/javascript"> $(function() {@Html.Raw(Model.Scripts)}); </script>

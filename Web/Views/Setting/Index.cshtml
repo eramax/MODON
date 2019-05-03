@@ -1,0 +1,66 @@
+﻿@model  ViewModels.Lookups.SettingIndexVM
+<style>
+    .services_panel .panel {
+        min-height: 180px;
+        border: 1px solid #1a526e;
+        border-top: 7px solid #1a526e !important;
+        background: #fbfbfb;
+        margin-top: 10%;
+    }
+
+        .services_panel .panel img {
+            width: 115px;
+        }
+
+        .services_panel .panel .btn {
+            width: 235px;
+            margin-top: 25px;
+            background: #f2f2f2;
+            color: #333;
+            border-bottom: 3px solid #e6e6e6;
+        }
+
+            .services_panel .panel .btn:hover {
+                border-bottom: 2px solid #e6e6e6;
+            }
+</style>
+<div class="search-toolbar" >
+    <!-- BEGIN row -->
+    <div class="row">
+        <!-- BEGIN col-6 -->
+        <div class="col-md-6">
+        </div>
+        <!-- END col-6 -->
+        <!-- BEGIN col-6 -->
+        <div class="col-md-6 text-right f-s-20">
+            <i class="fa fa-circle text-success"></i>     إعدادات
+        </div>
+        <!-- END col-6 -->
+    </div>
+    <!-- END row -->
+</div>
+
+<!-- end page-header -->
+<div class="row" dir="rtl">
+    <div class="col-md-12 ">
+        <div class="panel panel-default ">
+
+            <div class="panel-body">
+                <div class="services_panel" >
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-3 form-group">
+                            <div class="panel text-center">
+                                <h3>@item.Name</h3>
+                                <i class="@item.FaClassName"></i>
+                                <a href="@Url.Action(item.ActionName, item.ControllerName)" class="btn center-block">@item.ButtonName</a>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+﻿@model UiBuilder.UiView
+@Html.Raw(Model.Html)
+
+<script type="text/javascript">
+    $(function ()
+    {
+        @Html.Raw(Model.Scripts)
+    });
+</script>
+
+
+
